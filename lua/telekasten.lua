@@ -1203,12 +1203,6 @@ local function FindDailyNotes(opts)
                     actions.select_default:replace(
                         picker_actions.select_default
                     )
-                    map("i", "<c-y>", picker_actions.yank_link(opts))
-                    map("i", "<c-i>", picker_actions.paste_link(opts))
-                    map("n", "<c-y>", picker_actions.yank_link(opts))
-                    map("n", "<c-i>", picker_actions.paste_link(opts))
-                    map("n", "<c-c>", picker_actions.close(opts))
-                    map("n", "<esc>", picker_actions.close(opts))
                     return true
                 end,
                 sort = M.Cfg.sort,
@@ -1272,12 +1266,6 @@ local function FindWeeklyNotes(opts)
                     actions.select_default:replace(
                         picker_actions.select_default
                     )
-                    map("i", "<c-y>", picker_actions.yank_link(opts))
-                    map("i", "<c-i>", picker_actions.paste_link(opts))
-                    map("n", "<c-y>", picker_actions.yank_link(opts))
-                    map("n", "<c-i>", picker_actions.paste_link(opts))
-                    map("n", "<c-c>", picker_actions.close(opts))
-                    map("n", "<esc>", picker_actions.close(opts))
                     return true
                 end,
                 sort = M.Cfg.sort,
@@ -1352,12 +1340,6 @@ local function InsertLink(opts)
                     vim.api.nvim_feedkeys("a", "m", false)
                 end
             end)
-            map("i", "<c-y>", picker_actions.yank_link(opts))
-            map("i", "<c-i>", picker_actions.paste_link(opts))
-            map("n", "<c-y>", picker_actions.yank_link(opts))
-            map("n", "<c-i>", picker_actions.paste_link(opts))
-            map("i", "<c-cr>", picker_actions.paste_link(opts))
-            map("n", "<c-cr>", picker_actions.paste_link(opts))
             return true
         end
 
@@ -1454,12 +1436,6 @@ local function PreviewImg(opts)
                     actions.select_default:replace(function()
                         actions.close(prompt_bufnr)
                     end)
-                    map("i", "<c-y>", picker_actions.yank_img_link(opts))
-                    map("i", "<c-i>", picker_actions.paste_img_link(opts))
-                    map("n", "<c-y>", picker_actions.yank_img_link(opts))
-                    map("n", "<c-i>", picker_actions.paste_img_link(opts))
-                    map("i", "<c-cr>", picker_actions.paste_img_link(opts))
-                    map("n", "<c-cr>", picker_actions.paste_img_link(opts))
                     return true
                 end,
                 sort = M.Cfg.sort,
@@ -1498,12 +1474,6 @@ local function BrowseImg(opts)
                 actions.select_default:replace(function()
                     actions.close(prompt_bufnr)
                 end)
-                map("i", "<c-y>", picker_actions.yank_img_link(opts))
-                map("i", "<c-i>", picker_actions.paste_img_link(opts))
-                map("n", "<c-y>", picker_actions.yank_img_link(opts))
-                map("n", "<c-i>", picker_actions.paste_img_link(opts))
-                map("i", "<c-cr>", picker_actions.paste_img_link(opts))
-                map("n", "<c-cr>", picker_actions.paste_img_link(opts))
                 return true
             end,
             sort = M.Cfg.sort,
@@ -1544,12 +1514,6 @@ local function FindFriends(opts)
             find_command = M.Cfg.find_command,
             attach_mappings = function(_, map)
                 actions.select_default:replace(picker_actions.select_default)
-                map("i", "<c-y>", picker_actions.yank_link(opts))
-                map("i", "<c-i>", picker_actions.paste_link(opts))
-                map("n", "<c-y>", picker_actions.yank_link(opts))
-                map("n", "<c-i>", picker_actions.paste_link(opts))
-                map("i", "<c-cr>", picker_actions.paste_link(opts))
-                map("n", "<c-cr>", picker_actions.paste_link(opts))
                 return true
             end,
         })
@@ -1692,12 +1656,6 @@ local function GotoDate(opts)
                         vim.cmd("e " .. fname)
                         picker_actions.post_open()
                     end)
-                    map("i", "<c-y>", picker_actions.yank_link(opts))
-                    map("i", "<c-i>", picker_actions.paste_link(opts))
-                    map("n", "<c-y>", picker_actions.yank_link(opts))
-                    map("n", "<c-i>", picker_actions.paste_link(opts))
-                    map("n", "<c-c>", picker_actions.close(opts))
-                    map("n", "<esc>", picker_actions.close(opts))
                     return true
                 end,
             })
@@ -1774,16 +1732,6 @@ local function FindNotes(opts)
         local sort = M.Cfg.sort
         local attach_mappings = function(_, map)
             actions.select_default:replace(picker_actions.select_default)
-            map("i", "<c-y>", picker_actions.yank_link(opts))
-            map("i", "<c-i>", picker_actions.paste_link(opts))
-            map("n", "<c-y>", picker_actions.yank_link(opts))
-            map("n", "<c-i>", picker_actions.paste_link(opts))
-            map("i", "<c-cr>", picker_actions.paste_link(opts))
-            map("n", "<c-cr>", picker_actions.paste_link(opts))
-            if M.Cfg.enable_create_new then
-                map("i", "<c-n>", picker_actions.create_new(opts))
-                map("n", "<c-n>", picker_actions.create_new(opts))
-            end
             return true
         end
 
@@ -1838,12 +1786,6 @@ local function InsertImgLink(opts)
                         vim.api.nvim_feedkeys("A", "m", false)
                     end
                 end)
-                map("i", "<c-y>", picker_actions.yank_img_link(opts))
-                map("i", "<c-i>", picker_actions.paste_img_link(opts))
-                map("n", "<c-y>", picker_actions.yank_img_link(opts))
-                map("n", "<c-i>", picker_actions.paste_img_link(opts))
-                map("i", "<c-cr>", picker_actions.paste_img_link(opts))
-                map("n", "<c-cr>", picker_actions.paste_img_link(opts))
                 return true
             end,
             sort = M.Cfg.sort,
@@ -1877,12 +1819,6 @@ local function SearchNotes(opts)
             find_command = M.Cfg.find_command,
             attach_mappings = function(_, map)
                 actions.select_default:replace(picker_actions.select_default)
-                map("i", "<c-y>", picker_actions.yank_link(opts))
-                map("i", "<c-i>", picker_actions.paste_link(opts))
-                map("n", "<c-y>", picker_actions.yank_link(opts))
-                map("n", "<c-i>", picker_actions.paste_link(opts))
-                map("i", "<c-cr>", picker_actions.paste_link(opts))
-                map("n", "<c-cr>", picker_actions.paste_link(opts))
                 return true
             end,
         })
@@ -1923,12 +1859,6 @@ local function ShowBacklinks(opts)
             find_command = M.Cfg.find_command,
             attach_mappings = function(_, map)
                 actions.select_default:replace(picker_actions.select_default)
-                map("i", "<c-y>", picker_actions.yank_link(opts))
-                map("i", "<c-i>", picker_actions.paste_link(opts))
-                map("n", "<c-y>", picker_actions.yank_link(opts))
-                map("n", "<c-i>", picker_actions.paste_link(opts))
-                map("i", "<c-cr>", picker_actions.paste_link(opts))
-                map("n", "<c-cr>", picker_actions.paste_link(opts))
                 return true
             end,
         })
@@ -1992,10 +1922,6 @@ local function on_create_with_template(opts, title)
                     end
                 )
             end)
-            map("i", "<c-y>", picker_actions.yank_link(opts))
-            map("i", "<c-i>", picker_actions.paste_link(opts))
-            map("n", "<c-y>", picker_actions.yank_link(opts))
-            map("n", "<c-i>", picker_actions.paste_link(opts))
             return true
         end,
     })
@@ -2057,12 +1983,6 @@ local function on_create(opts, title)
             find_command = M.Cfg.find_command,
             attach_mappings = function(_, map)
                 actions.select_default:replace(picker_actions.select_default)
-                map("i", "<c-y>", picker_actions.yank_link(opts))
-                map("i", "<c-i>", picker_actions.paste_link(opts))
-                map("n", "<c-y>", picker_actions.yank_link(opts))
-                map("n", "<c-i>", picker_actions.paste_link(opts))
-                map("n", "<c-c>", picker_actions.close(opts))
-                map("n", "<esc>", picker_actions.close(opts))
                 return true
             end,
         })
@@ -2222,12 +2142,6 @@ local function FollowLink(opts)
                             actions.select_default:replace(
                                 picker_actions.select_default
                             )
-                            map("i", "<c-y>", picker_actions.yank_link(opts))
-                            map("i", "<c-i>", picker_actions.paste_link(opts))
-                            map("n", "<c-y>", picker_actions.yank_link(opts))
-                            map("n", "<c-i>", picker_actions.paste_link(opts))
-                            map("n", "<c-c>", picker_actions.close(opts))
-                            map("n", "<esc>", picker_actions.close(opts))
                             return true
                         end,
                         sort = M.Cfg.sort,
@@ -2555,12 +2469,6 @@ local function FollowLink(opts)
                     actions.select_default:replace(
                         picker_actions.select_default
                     )
-                    map("i", "<c-y>", picker_actions.yank_link(opts))
-                    map("i", "<c-i>", picker_actions.paste_link(opts))
-                    map("n", "<c-y>", picker_actions.yank_link(opts))
-                    map("n", "<c-i>", picker_actions.paste_link(opts))
-                    map("i", "<c-cr>", picker_actions.paste_link(opts))
-                    map("n", "<c-cr>", picker_actions.paste_link(opts))
                     return true
                 end,
             })
@@ -2610,12 +2518,6 @@ local function GotoThisWeek(opts)
                         actions.select_default:replace(
                             picker_actions.select_default
                         )
-                        map("i", "<c-y>", picker_actions.yank_link(opts))
-                        map("i", "<c-i>", picker_actions.paste_link(opts))
-                        map("n", "<c-y>", picker_actions.yank_link(opts))
-                        map("n", "<c-i>", picker_actions.paste_link(opts))
-                        map("n", "<c-c>", picker_actions.close(opts))
-                        map("n", "<esc>", picker_actions.close(opts))
                         return true
                     end,
                 })
@@ -2875,12 +2777,6 @@ local function FindAllTags(opts)
                             FollowLink(follow_opts)
                         end)
                     end)
-                    map("i", "<c-y>", picker_actions.yank_tag(opts))
-                    map("i", "<c-i>", picker_actions.paste_tag(opts))
-                    map("n", "<c-y>", picker_actions.yank_tag(opts))
-                    map("n", "<c-i>", picker_actions.paste_tag(opts))
-                    map("n", "<c-c>", picker_actions.close(opts))
-                    map("n", "<esc>", picker_actions.close(opts))
                     return true
                 end,
             })
